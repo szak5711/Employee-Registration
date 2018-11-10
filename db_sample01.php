@@ -5,7 +5,7 @@ function db_connect(){
 	$server = "localhost:3306";  
 $userName = "root"; 
 $password = "root"; 
-$dbName = "sample01";
+$dbName = "company";
  
 	$mysqli = new mysqli($server, $userName, $password,$dbName);
  

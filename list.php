@@ -5,7 +5,7 @@ header("Content-type: text/html; charset=utf-8");
 require_once("db_sample01.php");
 $mysqli = db_connect();
  
-$sql = "SELECT * FROM name";
+$sql = "SELECT * FROM employee";
  
 $result = $mysqli -> query($sql);
  
@@ -37,31 +37,31 @@ $mysqli->close();
 <h1>name一覧</h1> 
  
 <table border='1'>
-<tr><td>id</td><td>name</td><td>名前を変更する</td><td>名前を削除する</td></tr>
+<tr><td>code</td><td>name</td><td>名前を変更する</td><td>名前を削除する</td></tr>
  
 <?php 
 foreach($rows as $row){
  ?>
  
 <tr> 
-	<td><?=$row['id']?></td>
+	<td><?=$row['code']?></td>
 	<td><?=htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8')?></td>
 	<td>
 		<form action="update_check.php" method="post">
 		<input type="submit" value="変更">
-		<input type="hidden" name="id" value="<?=$row['id']?>">
+		<input type="hidden" name="code" value="<?=$row['code']?>">
 		</form>
 	</td>
 	<td>
 		<form action="delete_check.php" method="post">
 		<input type="submit" value="削除">
-		<input type="hidden" name="id" value="<?=$row['id']?>">
+		<input type="hidden" name="code" value="<?=$row['code']?>">
 		</form>
 	</td>
 	<td>
 		<form action="reference.php" method="post">
 		<input type="submit" value="参照">
-		<input type="hidden" name="id" value="<?=$row['id']?>">
+		<input type="hidden" name="code" value="<?=$row['code']?>">
 		</form>
 	</td>
 </tr>

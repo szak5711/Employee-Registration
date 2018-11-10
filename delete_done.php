@@ -9,17 +9,17 @@ if(empty($_POST)) {
 	echo "<a href='delete1.php'>delete1.php</a>←こちらのページからどうぞ";
 	exit();
 }else{
-	if (!isset($_POST['id'])  || !is_numeric($_POST['id']) ){
-		echo "IDエラー";
+	if (!isset($_POST['code'])  || !is_numeric($_POST['code']) ){
+		echo "codeエラー";
 		exit();
 	}else{
 		//プリペアドステートメント
-		$stmt = $mysqli->prepare("DELETE FROM name WHERE id=?");
+		$stmt = $mysqli->prepare("DELETE FROM employee WHERE code=?");
 		
 		if($stmt){
 			//プレースホルダへ実際の値を設定する
-			$stmt->bind_param('i', $id);
-			$id = $_POST['id'];
+			$stmt->bind_param('i', $code);
+			$code = $_POST['code'];
 					
 			$stmt->execute();
 			

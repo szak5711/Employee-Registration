@@ -16,12 +16,12 @@ if(empty($_POST)) {
 	
 	if(count($errors) === 0){
 		//プリペアドステートメント
-		$stmt = $mysqli->prepare("UPDATE name SET name=? WHERE id=?");
+		$stmt = $mysqli->prepare("UPDATE employee SET name=? WHERE code=?");
 		if ($stmt) {
 			//プレースホルダへ実際の値を設定する
-			$stmt->bind_param('si', $name, $id);
+			$stmt->bind_param('si', $name, $code);
 			$name = $_POST['name'];
-			$id = $_POST['id'];
+			$code = $_POST['code'];
 			
 			//クエリ実行
 			$stmt->execute();

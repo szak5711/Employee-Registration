@@ -15,7 +15,7 @@ if ($mysqli->connect_error){
 	$mysqli->set_charset("utf-8");
 }
  
-$sql = "SELECT * FROM name";
+$sql = "SELECT * FROM employee";
  
 $result = $mysqli -> query($sql);
  
@@ -53,13 +53,13 @@ $mysqli->close();
 レコード件数：<?php echo $row_count; ?>
  
 <table border='1'>
-<tr><th>id</th><th>name</th></tr>
+<tr><th>code</th><th>name</th></tr>
  
 <?php 
 foreach($rows as $row){
 ?> 
 <tr> 
-	<td><?php echo $row['id']; ?></td> 
+	<td><?php echo $row['code']; ?></td> 
 	<td><?php echo htmlspecialchars($row['name'],ENT_QUOTES,'UTF-8'); ?></td> 
 </tr> 
 <?php 
