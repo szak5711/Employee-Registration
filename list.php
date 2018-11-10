@@ -48,13 +48,19 @@ foreach($rows as $row){
 	<td><?=htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8')?></td>
 	<td>
 		<form action="update_check.php" method="post">
-		<input type="submit" value="変更する">
+		<input type="submit" value="変更">
 		<input type="hidden" name="id" value="<?=$row['id']?>">
 		</form>
 	</td>
 	<td>
 		<form action="delete_check.php" method="post">
-		<input type="submit" value="削除する">
+		<input type="submit" value="削除">
+		<input type="hidden" name="id" value="<?=$row['id']?>">
+		</form>
+	</td>
+	<td>
+		<form action="reference.php" method="post">
+		<input type="submit" value="参照">
 		<input type="hidden" name="id" value="<?=$row['id']?>">
 		</form>
 	</td>
