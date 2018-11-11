@@ -16,7 +16,8 @@ $mysqli = db_connect();
 			$stmt->execute();
 			
 			//結果変数のバインド
-			$stmt->bind_result($code,$name);
+			$stmt->bind_result($code,$number,$name,$department,$seibetu);
+			
 			// 値の取得
 			$stmt->fetch();
 						

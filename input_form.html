@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>社員登録</title>
+<meta charset="utf-8">
+</head>
+<body>
+<h1>社員登録画面</h1> 
+ 
+<form action="input_check.php" method="post">
+<p>社員番号を入力：<input type="text" name="number"></p>
+<p>名前を入力：<input type="text" name="yourname"></p>
+<p>所属部署を入力：
+    <select name="department">
+        <option value="営業部">営業部</option>
+        <option value="テックドライブ部">テックドライブ部</option>
+        <option value="統括">統括</option>
+        <option value="メディア部">メディア部</option>
+        <option value="インターン生">インターン生</option>
+    </select>
+</p>
+<p>性別を入力：
+<input type="radio" name="seibetu" value="男性" checked> 男性
+<input type="radio" name="seibetu" value="女性" > 女性 </p>
+<p><input type="submit" value="登録する"></p>
+</form>
+ 
+</body>
+</html>

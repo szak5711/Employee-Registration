@@ -20,8 +20,11 @@ if(empty($_POST)) {
 		if ($stmt) {
 			//プレースホルダへ実際の値を設定する
 			$stmt->bind_param('si', $name, $code);
-			$name = $_POST['name'];
 			$code = $_POST['code'];
+			$number = $_POST['number'];
+			$name = $_POST['name'];
+			$department = $_POST['department'];
+			$seibetu = $_POST['seibetu'];
 			
 			//クエリ実行
 			$stmt->execute();

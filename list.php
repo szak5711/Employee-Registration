@@ -5,8 +5,8 @@ header("Content-type: text/html; charset=utf-8");
 require_once("db_sample01.php");
 $mysqli = db_connect();
  
-$sql = "SELECT * FROM employee";
- 
+ $sql = "SELECT * FROM employee ";
+//$sql = 'SELECT * FROM employee inner join assignment on employee.department = assignment.id'; 
 $result = $mysqli -> query($sql);
  
 //クエリー失敗
@@ -35,17 +35,18 @@ $mysqli->close();
 </head>
 <body>
 <h1>name一覧</h1> 
- 
+<button type="reset"><a href="input_form.html">社員追加登録</a></button> 
 <table border='1'>
-<tr><td>code</td><td>name</td><td>名前を変更する</td><td>名前を削除する</td></tr>
+<tr><td>社員番号</td><td>name</td><td>部署名</td><td>名前を変更する</td><td>名前を削除する</td><td>詳細</td></tr>
  
 <?php 
 foreach($rows as $row){
  ?>
  
 <tr> 
-	<td><?=$row['code']?></td>
+	<td><?=$row['number']?></td>
 	<td><?=htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8')?></td>
+	<td><?=htmlspecialchars($row['department'], ENT_QUOTES, 'UTF-8')?></td>
 	<td>
 		<form action="update_check.php" method="post">
 		<input type="submit" value="変更">
@@ -65,11 +66,10 @@ foreach($rows as $row){
 		</form>
 	</td>
 </tr>
- 
  <?php 
  } 
  ?>
- 
+
 </table>
  
 </body>
